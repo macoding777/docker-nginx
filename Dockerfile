@@ -2,10 +2,13 @@ FROM alpine:latest
 
 # install python and nginx
 RUN apk add --update nginx php php-cli 
-COPY config /etc/nginx
-RUN mkdir -p /app
-COPY port /app
+RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && echo "Asia/Jakarta" > /etc/timezone
+
+COPY ./config /etc/nginx
+# RUN mkdir -p /app
+COPY ./port /app
 WORKDIR /app
+
 
 
 
