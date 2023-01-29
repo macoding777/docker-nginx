@@ -21,4 +21,8 @@ RUN chmod +x ./start.sh
 RUN php -v
 
 
+# check nginx
+RUN nginx -t
+
+
 CMD ["./start.sh"]
