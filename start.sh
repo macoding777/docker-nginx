@@ -2,4 +2,4 @@
 
 echo "Starting the server..."
 # run php -S 
-nginx -g "daemon off;" &
+nginx -g "daemon off;"
