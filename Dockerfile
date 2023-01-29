@@ -19,7 +19,8 @@ RUN chmod +x ./start.sh
 
 
 RUN php -v
-
+# run php fpm
+RUN php-fpm
 
 # check nginx
 RUN nginx -t
