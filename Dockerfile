@@ -11,5 +11,5 @@ WORKDIR /app
 
 RUN chmod -R 777 /app
 COPY start.sh /app
-RUN chmod +x /start.sh
+RUN chmod +x start.sh
 ENTRYPOINT [ "./start.sh" ]
