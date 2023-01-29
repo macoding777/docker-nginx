@@ -24,6 +24,6 @@ RUN php -v
 
 # check nginx
 RUN nginx -t
-
+RUN ls /var/run/
 
 CMD ["./start.sh"]
