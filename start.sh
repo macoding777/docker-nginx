@@ -2,7 +2,7 @@
 
 echo "Starting the server..."
 # run php -S 
-rc-service php-fpm start
+rc-service php-fpm8.1 start
 php -S localhost:500 > /dev/null &
 
 
