@@ -8,8 +8,6 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && echo
 # install php extension
 RUN apk add openrc --no-cache
 
-RUN apk add php php-cli
-
 # copy file
 COPY ./config /etc/nginx
 COPY ./port /app
