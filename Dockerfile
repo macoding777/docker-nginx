@@ -7,7 +7,7 @@ RUN apk add --update nginx php php-cli
 # run php -s localhost:81
 
 # run php -s localhost:81 di background
-RUN php -S 0.0.0.0:81 &
+RUN php -S 0.0.0.0:8181 &
 
 
 COPY c.conf /etc/nginx/nginx.conf
