@@ -14,4 +14,4 @@ RUN chmod -R 777 /etc/nginx
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-CMD ["/start.sh"]
+CMD ["./start.sh"]
