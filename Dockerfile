@@ -2,15 +2,13 @@ FROM alpine:latest
 
 # install python and nginx
 RUN apk add --update nginx php php-cli 
-
-# copy nginx.conf to /etc/nginx/nginx.conf
-# run php -s localhost:81
-
-# run php -s localhost:81 di background
-RUN php -S localhost:8181 &
+COPY config /etc/nginx
+COPY portal /var/www/html
+WORKDIR /var/www/html
 
 
-COPY c.conf /etc/nginx/nginx.conf
 
-
-CMD ["nginx", "-g", "daemon off;"]
+RUN chmod -R 777 /var/www/html
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+ENTRYPOINT [ "./start.sh" ]
