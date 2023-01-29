@@ -1,18 +1,16 @@
 FROM alpine:latest
 
+# install python and nginx
+RUN apk add --update python py-pip nginx php php-cli 
+
+# copy nginx.conf to /etc/nginx/nginx.conf
+# run php -s localhost:81
+
+CMD ["php", "-S", "localhost:81"]
 
 
-RUN apk update && apk add curl wget vim unzip zip php php-fpm nginx
-
-RUN php -v
+COPY nginx.conf /etc/nginx/nginx.conf
 
 
-RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && echo "Asia/Jakarta" > /etc/timezone
-
-COPY ./port /var/www/html
-
-RUN chmod -R 777 /var/www/html
-
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
+# run nginx 
+CMD ["nginx", "-g", "daemon off;"]
