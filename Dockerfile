@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM php:8.1-rc-fpm-alpine3.17
 
 # install python and nginx
 RUN apk update && apk upgrade
@@ -8,10 +8,7 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && echo
 # install php extension
 RUN apk add openrc --no-cache
 
-# INSTALL PHP
-RUN apk add php7 php7-fpm php7-opcache 
-# install module 
-RUN apk add php7-gd php7-mysqli php7-zlib php7-curl
+RUN apk add php php-cli
 
 # copy file
 COPY ./config /etc/nginx
