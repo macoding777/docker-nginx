@@ -20,7 +20,7 @@ RUN chmod +x ./start.sh
 
 RUN php -v
 # run php fpm
-RUN rc-service php-fpm8.1 start
+RUN rc-service php8.1-fpm start
 
 # check nginx
 RUN nginx -t
