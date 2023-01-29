@@ -11,6 +11,6 @@ RUN php -S 0.0.0.0:81
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
-
+CMD [ "php","-S","0.0.0.0:81" ]
 # run nginx 
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
