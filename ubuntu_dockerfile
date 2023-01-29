@@ -1,11 +1,12 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
 # install python and nginx
-RUN apk add --update nginx php php-cli 
 RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && echo "Asia/Jakarta" > /etc/timezone
 # install all extension php
 # install php extension
-RUN apk add php-curl php-fpm php-gd curl php-cgi
+
+
+
 
 # copy file
 COPY ./config /etc/nginx
@@ -20,7 +21,7 @@ RUN chmod +x ./start.sh
 
 RUN php -v
 # run php fpm
-RUN rc-service php-fpm8.1 start
+
 
 # check nginx
 RUN nginx -t
