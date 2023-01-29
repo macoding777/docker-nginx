@@ -6,6 +6,8 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && echo
 # install all extension php
 # install php extension
 RUN apk add php-curl php-fpm php-gd curl php-cgi
+RUN apk add openrc --no-cache
+
 
 # copy file
 COPY ./config /etc/nginx
@@ -24,6 +26,5 @@ RUN php -v
 
 # check nginx
 RUN nginx -t
-RUN ls /var/run/
 
 CMD ["./start.sh"]
