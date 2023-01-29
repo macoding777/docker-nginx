@@ -1,4 +1,4 @@
 #!/bin/sh
 
 echo "Starting the server..."
-nginx
+nginx -g "daemon off;"
