@@ -15,4 +15,5 @@ WORKDIR /app
 RUN chmod -R 777 /app
 COPY start.sh /app/start.sh
 RUN chmod +x start.sh
+RUN pwd && ls -la
 CMD [ "./start.sh" ]
