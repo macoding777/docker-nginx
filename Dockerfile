@@ -9,8 +9,7 @@ RUN apk add --update nginx php php-cli
 RUN php -S localhost:81 &
 
 
-COPY nginx.conf /etc/nginx/nginx.conf
-
+COPY nginx.conf /etc/nginx/default.conf
 
 # run nginx 
 CMD ["nginx", "-g", "daemon off;"]
